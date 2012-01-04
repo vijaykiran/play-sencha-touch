@@ -1,9 +1,13 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
-
-# Home page
 GET     /                                       Application.index
+# Home page
+GET         /{controller}                   {controller}.index
+GET         /{controller}/{id}              {controller}.show
+PUT         /{controller}                   {controller}.create
+POST        /{controller}/{id}              {controller}.update
+DELETE      /{controller}/{id}              {controller}.delete
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
@@ -11,5 +15,3 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-# Catch all
-*       /{controller}/{action}                  {controller}.{action}

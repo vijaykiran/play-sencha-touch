@@ -3,7 +3,6 @@ Ext.define('TalkRate.model.Talk', {
     fields:[
         {name:"id", type:"int"},
         {name:"title", type:"string"},
-        {name:"date", type:"date"},
         {name:"speaker", type:"string"}
     ],
 

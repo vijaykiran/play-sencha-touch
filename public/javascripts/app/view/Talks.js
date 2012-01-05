@@ -1,18 +1,15 @@
-/*
-@class TalkList View
-*/
-
 Ext.define('TalkRate.view.Talks', {
     extend:'Ext.NavigationView',
     requires:["TalkRate.view.TalksList"],
+    xtype:'talks',
     config:{
-        fullscreen: true,
-        items: [
-          {
-            title: 'Talks',
-            items: [{
-                xtype: 'talkslist'
-            }]
-        }]
+        fullscreen:false,
+        items:[
+            {
+                xtype:'talkslist',
+                title:'Talks',
+                store:'TalkStore'
+            }
+        ]
     }
 });

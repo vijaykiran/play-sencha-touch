@@ -4,7 +4,6 @@ Ext.define('TalkRate.store.TalkStore', {
     requires:['TalkRate.model.Talk'],
 
     autoLoad:true,
-
     proxy:{
         type:'ajax',
         url:'/talks',

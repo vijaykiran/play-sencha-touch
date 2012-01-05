@@ -2,12 +2,12 @@ package models;
 
 import play.db.jpa.Model;
 
+import javax.persistence.Entity;
 import java.util.Date;
-import java.util.Set;
 
+@Entity
 public class Talk extends Model {
-    public Date title;
+    public String title;
     public Date date;
-    public Speaker speaker;
-    public Set<String> tags;
+    public String speaker;
 }

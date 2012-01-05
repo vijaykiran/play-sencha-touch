@@ -1,3 +1,8 @@
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+GET     /app/                                   staticDir:public/javascripts/app
+
+
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
@@ -12,6 +17,4 @@ DELETE      /{controller}/{id}              {controller}.delete
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
-# Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
 

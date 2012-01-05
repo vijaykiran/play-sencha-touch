@@ -1,16 +1,12 @@
-Ext.application({
-    name: 'Sencha',
+/*
+Starting point of the application. Instantiates the controllers, launches the app with the Home Controller.
+*/
 
+
+Ext.application({
+    name:'TalkRate',
+    controllers:['Home'],
     launch: function() {
-        Ext.create("Ext.TabPanel", {
-            fullscreen: true,
-            items: [
-                {
-                    title: 'Home',
-                    iconCls: 'home',
-                    html: 'Welcome'
-                }
-            ]
-        });
+      
     }
 });

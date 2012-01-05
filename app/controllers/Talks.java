@@ -1,11 +1,11 @@
 package controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import models.Talk;
-import play.data.binding.As;
 import play.db.jpa.JPA;
 import play.mvc.Controller;
 import utils.SenchaResponseWrapper;
-import utils.TalkJsonBinder;
 
 import java.io.IOException;
 
@@ -19,18 +19,21 @@ public class Talks extends Controller {
     public static void show(final String id) {
         final Talk talk = Talk.findById(params.get("id"));
         renderJSON(new SenchaResponseWrapper(true, talk));
+
     }
 
     //POST {controller}
-    public static void create(@As(binder = TalkJsonBinder.class) Talk talk) throws IOException {
-        JPA.em().merge(talk);
-        renderJSON(new SenchaResponseWrapper(true, talk));
+    public static void create(JsonObject  body) throws IOException {
+        Talk talk = new Gson().fromJson(body, Talk.class);
+        final Talk result = JPA.em().merge(talk);
+        renderJSON(new SenchaResponseWrapper(true, result));
     }
 
     //PUT {model}s/{id}
-    public static void update(@As(binder = TalkJsonBinder.class) Talk talk) {
-        JPA.em().merge(talk);
-        renderJSON(new SenchaResponseWrapper(true, talk));
+    public static void update(JsonObject body) {
+        Talk talk = new Gson().fromJson(body, Talk.class);
+        final Talk result = JPA.em().merge(talk);
+        renderJSON(new SenchaResponseWrapper(true, result));
     }
 
     //DELETE {model}s/{id}

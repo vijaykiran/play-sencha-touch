@@ -2,7 +2,7 @@ Ext.define('TalkRate.controller.Home', {
     extend:'Ext.app.Controller',
 
     views:['Talks'],
-    stores: ['TalkStore'],
+    stores:['TalkStore'],
 
     init:function () {
         this.getTalksView().create();
@@ -15,9 +15,14 @@ Ext.define('TalkRate.controller.Home', {
     },
 
     showTalkForm:function () {
+        var me = this;
         var talk = Ext.create('TalkRate.model.Talk', { title:"Play Squeryl"});
-        talk.save();
-        this.getTalkStoreStore().load();
+        talk.save({
+            success:function () {
+                me.getTalkStoreStore().load();
+            }
+        });
+
     }
 });
 

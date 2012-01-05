@@ -5,6 +5,15 @@ Ext.define('TalkRate.model.Talk', {
         {name:"title", type:"string"},
         {name:"date", type:"date"},
         {name:"speaker", type:"string"}
-    ]
+    ],
 
+    proxy:{
+        type:'rest',
+        url:'/talks',
+
+        reader:{
+            type:'json',
+            root:'items'
+        }
+    }
 });

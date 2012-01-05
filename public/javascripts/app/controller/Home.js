@@ -8,11 +8,16 @@ Ext.define('TalkRate.controller.Home', {
         this.getTalksView().create();
 
         this.control({
-            '.talkitem': {
-                'tap': function (comp) {
-                    console.log(comp);
-                }
+            'button#addTalk':{
+                'tap':this.showTalkForm
             }
         });
+    },
+
+    showTalkForm:function () {
+        var talk = Ext.create('TalkRate.model.Talk', { title:"Play Squeryl"});
+        talk.save();
+        this.getTalkStoreStore().load();
     }
 });
+

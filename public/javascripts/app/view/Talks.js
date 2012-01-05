@@ -4,6 +4,14 @@ Ext.define('TalkRate.view.Talks', {
     xtype:'talks',
     config:{
         fullscreen:false,
+        navigationBar: {
+            items:[
+                {
+                    xtype: 'button',
+                    id: 'addTalk',
+                    text: 'Add'
+                }]
+        },
         items:[
             {
                 xtype:'talkslist',

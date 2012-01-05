@@ -10,8 +10,8 @@ GET     /                                       Application.index
 # Home page
 GET         /{controller}                   {controller}.index
 GET         /{controller}/{id}              {controller}.show
-PUT         /{controller}                   {controller}.create
-POST        /{controller}/{id}              {controller}.update
+POST        /{controller}                   {controller}.create
+PUT         /{controller}/{id}              {controller}.update
 DELETE      /{controller}/{id}              {controller}.delete
 
 # Ignore favicon requests
